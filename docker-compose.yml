@@ -1,0 +1,28 @@
+services:
+  dump1090:
+    image: dump1090:latest
+    container_name: dump1090 
+    ports:
+      - 30005:30005
+      - 30002:30002
+      - 30003:30003
+    devices:
+      - /dev/bus/usb
+    restart: always
+    command: --net
+
+  tar1090:
+    image: tar1090:latest
+    tty: true
+    container_name: tar1090
+    restart: always
+    environment:
+      - TZ=America/Los_Angeles
+      - BEASTHOST=192.168.1.86
+      - LAT=35.15189
+      - LONG=-118.48236
+    ports:
+      - 8078:80
+    tmpfs:
+      - /run:exec,size=64M
+      - /var/log
