@@ -18,7 +18,7 @@ services:
     restart: always
     environment:
       - TZ=America/Los_Angeles
-      - BEASTHOST=192.168.1.86
+      - BEASTHOST=172.17.0.1
       - LAT=35.15189
       - LONG=-118.48236
     ports:

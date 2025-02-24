@@ -13,7 +13,7 @@ docker build -t tar1090 -f Dockerfile.tar1090 .
 Edit [docker-compose.yml](./docker-compose.yml). Primarily changes needed will be:
 
 - `commands` section of `dump1090` which defines SDR specific configuration
-- `environment` section of `tar1090` which defines the timezone, BEASTHOST IP, and home position of SDR
+- `environment` section of `tar1090` which defines the timezone and home position of SDR
 
 ## Usage
 
