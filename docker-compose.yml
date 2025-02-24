@@ -9,7 +9,7 @@ services:
     devices:
       - /dev/bus/usb
     restart: always
-    command: --net
+    command: --net --device-type soapy --device 'driver=rtlsdr' --enable-agc # change to uhd for B210 or similiar
 
   tar1090:
     image: tar1090:latest
