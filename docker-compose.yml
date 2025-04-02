@@ -26,3 +26,17 @@ services:
     tmpfs:
       - /run:exec,size=64M
       - /var/log
+
+  adsbx:
+    image: ghcr.io/sdr-enthusiasts/docker-adsbexchange:latest
+    container_name: adsbx
+    restart: always
+    environment:
+      - TZ=America/Los_Angeles
+      - LAT=35.15189
+      - LONG=-118.48236
+      - ALT=1181m
+      - SITENAME=ADV_SCANNER_TEHACHAPI
+      - UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    tmpfs:
+      - /run:rw,nosuid,nodev,exec,relatime,size=64M,uid=1000,gid=1000
