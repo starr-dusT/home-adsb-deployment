@@ -33,6 +33,7 @@ services:
     restart: always
     environment:
       - TZ=America/Los_Angeles
+      - BEASTHOST=172.17.0.1
       - LAT=35.15189
       - LONG=-118.48236
       - ALT=1181m
