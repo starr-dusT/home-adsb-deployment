@@ -1,5 +1,0 @@
-FROM mikenye/tar1090:latest
-
-# Install offline maps
-RUN curl https://raw.githubusercontent.com/wiedehopf/adsb-scripts/master/osm_tiles_offline.sh | bash
-RUN curl https://raw.githubusercontent.com/wiedehopf/adsb-scripts/master/osm_tiles_offline_10.sh | bash
