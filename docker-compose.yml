@@ -1,15 +1,24 @@
 services:
-  dump1090:
-    image: dump1090:latest
-    container_name: dump1090 
+  readsb:
+    image: readsb:latest
+    container_name: readsb 
     ports:
       - 30005:30005
-      - 30002:30002
-      - 30003:30003
     devices:
       - /dev/bus/usb
     restart: always
-    command: --net --device-type soapy --device 'driver=rtlsdr' --enable-agc # change to uhd for B210 or similiar
+    command: --net --device-type rtlsdr --device 1090 --gain 20.7 --net-connector 172.17.0.1,30006,uat_in --net-bo-port 30005
+
+  dump978:
+    image: dump978:latest
+    container_name: dump978
+    ports:
+      - 30006:30006
+      - 30007:30007
+    devices:
+      - /dev/bus/usb
+    restart: always
+    command: --sdr 'driver=rtlsdr,serial=978' --sdr-gain 20.7 --raw-port 30006 --json-port 30007
 
   tar1090:
     image: mikenye/tar1090:latest
