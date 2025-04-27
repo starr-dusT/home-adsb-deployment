@@ -47,7 +47,7 @@ services:
       - LONG=-118.48236
       - ALT=1181m
       - SITENAME=ADV_SCANNER_TEHACHAPI
-      - UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+      - UUID=${ADSBX_UUID}
     tmpfs:
       - /run:rw,nosuid,nodev,exec,relatime,size=64M,uid=1000,gid=1000
 
@@ -60,7 +60,7 @@ services:
     environment:
       - BEASTHOST=172.17.0.1
       - TZ=America/Los_Angeles
-      - FEEDER_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+      - FEEDER_ID=${PIAWARE_UUID}
     tmpfs:
       - /run:exec,size=64M
       - /var/log
