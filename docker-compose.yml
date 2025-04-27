@@ -28,8 +28,8 @@ services:
     environment:
       - TZ=America/Los_Angeles
       - BEASTHOST=172.17.0.1
-      - LAT=35.15189
-      - LONG=-118.48236
+      - LAT=${LAT}
+      - LONG=${LONG}
     ports:
       - 8078:80
     tmpfs:
@@ -43,8 +43,8 @@ services:
     environment:
       - TZ=America/Los_Angeles
       - BEASTHOST=172.17.0.1
-      - LAT=35.15189
-      - LONG=-118.48236
+      - LAT=${LAT}
+      - LONG=${LONG}
       - ALT=1181m
       - SITENAME=ADV_SCANNER_TEHACHAPI
       - UUID=${ADSBX_UUID}
@@ -60,8 +60,8 @@ services:
     environment:
       - BEASTHOST=172.17.0.1
       - TZ=America/Los_Angeles
-      - LAT=35.15189
-      - LONG=-118.48236
+      - LAT=${LAT}
+      - LONG=${LONG}
       - FEEDER_ID=${PIAWARE_UUID}
     tmpfs:
       - /run:exec,size=64M
