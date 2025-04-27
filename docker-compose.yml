@@ -74,7 +74,7 @@ services:
     ports:
       - 8754:8754
     environment:
-      - BEASTHOST=ultrafeeder
+      - BEASTHOST=172.17.0.1
       - FR24KEY=${FR24_UUID}
     tmpfs:
       - /var/log
