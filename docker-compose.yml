@@ -60,6 +60,8 @@ services:
     environment:
       - BEASTHOST=172.17.0.1
       - TZ=America/Los_Angeles
+      - LAT=35.15189
+      - LONG=-118.48236
       - FEEDER_ID=${PIAWARE_UUID}
     tmpfs:
       - /run:exec,size=64M
