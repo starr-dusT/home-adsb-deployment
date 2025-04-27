@@ -78,3 +78,19 @@ services:
       - FR24KEY=${FR24_UUID}
     tmpfs:
       - /var/log
+
+  opensky:
+    image: ghcr.io/sdr-enthusiasts/docker-opensky-network:latest
+    container_name: opensky
+    restart: unless-stopped
+    environment:
+      - TZ=America/Los_Angeles
+      - BEASTHOST=17.17.0.1
+      - LAT=${LAT}
+      - LONG=${LONG}
+      - ALT=1181
+      - OPENSKY_USERNAME=${OPENSKY_USERNAME}
+      - OPENSKY_SERIAL=${OPENSKY_SERIAL}
+    tmpfs:
+      - /run:exec,size=64M
+      - /var/log
