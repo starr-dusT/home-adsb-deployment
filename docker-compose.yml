@@ -8,7 +8,10 @@ services:
     devices:
       - /dev/bus/usb
     restart: always
-    command: --net --device-type rtlsdr --device 1090 --gain 20.7 --net-connector 172.17.0.1,30006,uat_in --net-bo-port 30005 --net-sbs-port 30003
+    command: --net --device-type rtlsdr --device 1090 --enable-agc --net-connector 172.17.0.1,30006,uat_in --net-bo-port 30005 --net-sbs-port 30003
+    tmpfs:
+      - /run:exec,size=64M
+      - /var/log
 
   dump978:
     image: dump978:latest
@@ -19,7 +22,10 @@ services:
     devices:
       - /dev/bus/usb
     restart: always
-    command: --sdr 'driver=rtlsdr,serial=978' --sdr-gain 20.7 --raw-port 30006 --json-port 30007
+    command: --sdr 'driver=rtlsdr,serial=978' --sdr-auto-gain --raw-port 30006 --json-port 30007
+    tmpfs:
+      - /run:exec,size=64M
+      - /var/log
 
   tar1090:
     image: mikenye/tar1090:latest
